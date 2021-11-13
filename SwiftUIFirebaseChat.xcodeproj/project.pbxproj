@@ -17,6 +17,10 @@
 		D53B393527406E0A0065B032 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D53B393427406E0A0065B032 /* FirebaseStorage */; };
 		D53B393727406F000065B032 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D53B393627406EFF0065B032 /* GoogleService-Info.plist */; };
 		D53B393827406F000065B032 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D53B393627406EFF0065B032 /* GoogleService-Info.plist */; };
+		D53B393A274070FD0065B032 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3939274070FD0065B032 /* HomeView.swift */; };
+		D53B393B274070FD0065B032 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3939274070FD0065B032 /* HomeView.swift */; };
+		D53B393E274072EF0065B032 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B393D274072EF0065B032 /* FirebaseManager.swift */; };
+		D53B393F274072EF0065B032 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B393D274072EF0065B032 /* FirebaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,8 @@
 		D53B3920274038CF0065B032 /* SwiftUIFirebaseChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIFirebaseChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D53B3922274038CF0065B032 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		D53B393627406EFF0065B032 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D53B3939274070FD0065B032 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D53B393D274072EF0065B032 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +67,10 @@
 		D53B3912274038CD0065B032 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D53B393C274072E00065B032 /* Network */,
 				D53B3913274038CD0065B032 /* SwiftUIFirebaseChatApp.swift */,
 				D53B3914274038CD0065B032 /* LoginView.swift */,
+				D53B3939274070FD0065B032 /* HomeView.swift */,
 				D53B3915274038CF0065B032 /* Assets.xcassets */,
 				D53B393627406EFF0065B032 /* GoogleService-Info.plist */,
 			);
@@ -84,6 +92,14 @@
 				D53B3922274038CF0065B032 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		D53B393C274072E00065B032 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D53B393D274072EF0065B032 /* FirebaseManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +209,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D53B393E274072EF0065B032 /* FirebaseManager.swift in Sources */,
+				D53B393A274070FD0065B032 /* HomeView.swift in Sources */,
 				D53B3925274038CF0065B032 /* LoginView.swift in Sources */,
 				D53B3923274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */,
 			);
@@ -202,6 +220,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D53B393F274072EF0065B032 /* FirebaseManager.swift in Sources */,
+				D53B393B274070FD0065B032 /* HomeView.swift in Sources */,
 				D53B3926274038CF0065B032 /* LoginView.swift in Sources */,
 				D53B3924274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */,
 			);
