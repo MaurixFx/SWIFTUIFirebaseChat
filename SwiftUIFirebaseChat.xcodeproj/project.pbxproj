@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		D53B3923274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3913274038CD0065B032 /* SwiftUIFirebaseChatApp.swift */; };
 		D53B3924274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3913274038CD0065B032 /* SwiftUIFirebaseChatApp.swift */; };
-		D53B3925274038CF0065B032 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3914274038CD0065B032 /* ContentView.swift */; };
-		D53B3926274038CF0065B032 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3914274038CD0065B032 /* ContentView.swift */; };
+		D53B3925274038CF0065B032 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3914274038CD0065B032 /* LoginView.swift */; };
+		D53B3926274038CF0065B032 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3914274038CD0065B032 /* LoginView.swift */; };
 		D53B3927274038CF0065B032 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D53B3915274038CF0065B032 /* Assets.xcassets */; };
 		D53B3928274038CF0065B032 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D53B3915274038CF0065B032 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D53B3913274038CD0065B032 /* SwiftUIFirebaseChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIFirebaseChatApp.swift; sourceTree = "<group>"; };
-		D53B3914274038CD0065B032 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D53B3914274038CD0065B032 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D53B3915274038CF0065B032 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D53B391A274038CF0065B032 /* SwiftUIFirebaseChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIFirebaseChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D53B3920274038CF0065B032 /* SwiftUIFirebaseChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIFirebaseChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				D53B3913274038CD0065B032 /* SwiftUIFirebaseChatApp.swift */,
-				D53B3914274038CD0065B032 /* ContentView.swift */,
+				D53B3914274038CD0065B032 /* LoginView.swift */,
 				D53B3915274038CF0065B032 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -176,7 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D53B3925274038CF0065B032 /* ContentView.swift in Sources */,
+				D53B3925274038CF0065B032 /* LoginView.swift in Sources */,
 				D53B3923274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,7 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D53B3926274038CF0065B032 /* ContentView.swift in Sources */,
+				D53B3926274038CF0065B032 /* LoginView.swift in Sources */,
 				D53B3924274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
