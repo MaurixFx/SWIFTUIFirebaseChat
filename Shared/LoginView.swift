@@ -13,6 +13,7 @@ struct LoginView: View {
     @State var isLoginMode = false
     @State var email = ""
     @State var password = ""
+    @State var shouldShowImagePicker = false
     
     var body: some View {
         NavigationView {
@@ -27,11 +28,27 @@ struct LoginView: View {
                     
                     if !isLoginMode {
                         Button {
-                            
+                            shouldShowImagePicker.toggle()
                         } label: {
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 64))
-                                .padding()
+                            
+                            VStack {
+                                if let image = image {
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 128, height: 128)
+                                        .cornerRadius(64)
+                                } else {
+                                    Image(systemName: "person.fill")
+                                        .font(.system(size: 64))
+                                        .padding()
+                                        .foregroundColor(Color(.label))
+                                }
+                            }
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 64)
+                                .stroke(Color.black, lineWidth: 3)
+                            )
                         }
                     }
                     
@@ -68,8 +85,14 @@ struct LoginView: View {
             .navigationTitle(isLoginMode ? "Log In" : "Create Account")
             .background(Color(.init(white: 0, alpha: 0.05))
                             .ignoresSafeArea())
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil) {
+            ImagePicker(image: $image)
+        }
     }
+    
+    @State var image: UIImage?
     
     private func handleAction() {
         if isLoginMode {
@@ -112,6 +135,36 @@ struct LoginView: View {
             
             self.loginStatusMessage = "Successfully created user: \(user.uid)"
             print(self.loginStatusMessage)
+            
+            self.persistImageToStorage()
+        }
+    }
+    
+    private func persistImageToStorage() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+            return
+        }
+        
+        let ref = FirebaseManager.shared.storage.reference(withPath: uid)
+        
+        guard let imageData = self.image?.jpegData(compressionQuality: 0.5) else {
+            return
+        }
+        
+        ref.putData(imageData, metadata: nil) { meta, error in
+            if let error = error {
+                self.loginStatusMessage = "Failed to push image to Storage:  \(error.localizedDescription)"
+                return
+            }
+            
+            ref.downloadURL { url, error in
+                if let error = error {
+                    self.loginStatusMessage = "Failed to retrieve downloadURL:  \(error.localizedDescription)"
+                    return
+                }
+                
+                self.loginStatusMessage = "Successfuly stored image with url: \(url?.absoluteString ?? "")"
+            }
         }
     }
 }
