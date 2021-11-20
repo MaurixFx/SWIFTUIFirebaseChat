@@ -33,8 +33,8 @@
 		D58B259C2748853900BB0AD9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D58B259B2748853900BB0AD9 /* FirebaseStorage */; };
 		D58B25A52748889400BB0AD9 /* MainMessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B25A42748889400BB0AD9 /* MainMessagesViewModel.swift */; };
 		D58B25A62748889400BB0AD9 /* MainMessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B25A42748889400BB0AD9 /* MainMessagesViewModel.swift */; };
-		D58B25A8274888DF00BB0AD9 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B25A7274888DF00BB0AD9 /* CustomNavBar.swift */; };
-		D58B25A9274888DF00BB0AD9 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B25A7274888DF00BB0AD9 /* CustomNavBar.swift */; };
+		D58B25A8274888DF00BB0AD9 /* CustomNavBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B25A7274888DF00BB0AD9 /* CustomNavBarViewModel.swift */; };
+		D58B25A9274888DF00BB0AD9 /* CustomNavBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B25A7274888DF00BB0AD9 /* CustomNavBarViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +56,7 @@
 		D53B39672748434F0065B032 /* MainMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessagesView.swift; sourceTree = "<group>"; };
 		D58B258B27487B5E00BB0AD9 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		D58B25A42748889400BB0AD9 /* MainMessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessagesViewModel.swift; sourceTree = "<group>"; };
-		D58B25A7274888DF00BB0AD9 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
+		D58B25A7274888DF00BB0AD9 /* CustomNavBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarViewModel.swift; sourceTree = "<group>"; };
 		DE383AD3AD6B7B5D6BF4EF45 /* Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (iOS)/Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +180,7 @@
 		D58B25A22748886400BB0AD9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D58B25A7274888DF00BB0AD9 /* CustomNavBarViewModel.swift */,
 				D58B25A42748889400BB0AD9 /* MainMessagesViewModel.swift */,
 			);
 			path = ViewModel;
@@ -189,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				D53B39672748434F0065B032 /* MainMessagesView.swift */,
-				D58B25A7274888DF00BB0AD9 /* CustomNavBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -376,7 +376,7 @@
 				D58B258C27487B5E00BB0AD9 /* ChatUser.swift in Sources */,
 				D53B393E274072EF0065B032 /* FirebaseManager.swift in Sources */,
 				D53B39682748434F0065B032 /* MainMessagesView.swift in Sources */,
-				D58B25A8274888DF00BB0AD9 /* CustomNavBar.swift in Sources */,
+				D58B25A8274888DF00BB0AD9 /* CustomNavBarViewModel.swift in Sources */,
 				D53B393A274070FD0065B032 /* HomeView.swift in Sources */,
 				D53B394127408ACC0065B032 /* ImagePicker.swift in Sources */,
 				D53B3925274038CF0065B032 /* LoginView.swift in Sources */,
@@ -392,7 +392,7 @@
 				D58B258D27487B5E00BB0AD9 /* ChatUser.swift in Sources */,
 				D53B393F274072EF0065B032 /* FirebaseManager.swift in Sources */,
 				D53B39692748434F0065B032 /* MainMessagesView.swift in Sources */,
-				D58B25A9274888DF00BB0AD9 /* CustomNavBar.swift in Sources */,
+				D58B25A9274888DF00BB0AD9 /* CustomNavBarViewModel.swift in Sources */,
 				D53B393B274070FD0065B032 /* HomeView.swift in Sources */,
 				D53B394227408ACC0065B032 /* ImagePicker.swift in Sources */,
 				D53B3926274038CF0065B032 /* LoginView.swift in Sources */,
