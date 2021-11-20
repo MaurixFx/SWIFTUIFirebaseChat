@@ -37,7 +37,8 @@ final class MainMessagesViewModel: ObservableObject {
             let uid = data["uid"] as? String ?? ""
             let email = data["email"] as? String ?? ""
             let profileImageURL = data["profileImageUrl"] as? String ?? ""
-            self.chatUser = ChatUser(uid: uid, email: email.replacingOccurrences(of: "@hola.cl", with: ""), profileImageUrl: profileImageURL)
+            let username = data["username"] as? String ?? ""
+            self.chatUser = ChatUser(uid: uid, email: email, profileImageUrl: profileImageURL, username: username)
             self.errorMessage = ""
         }
     }

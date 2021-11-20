@@ -11,4 +11,5 @@ struct ChatUser {
     let uid: String
     let email: String
     let profileImageUrl: String
+    let username: String
 }

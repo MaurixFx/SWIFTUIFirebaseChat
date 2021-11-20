@@ -16,7 +16,7 @@ struct MainMessagesView: View {
         var body: some View {
             NavigationView {
                 VStack {
-                    CustomNavBar(username: viewModel.chatUser?.email ?? "", imageURL: viewModel.chatUser?.profileImageUrl ?? "")
+                    CustomNavBar(username: viewModel.chatUser?.username ?? "", imageURL: viewModel.chatUser?.profileImageUrl ?? "")
                     messagesView
                 }
                 .overlay(
