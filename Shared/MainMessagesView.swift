@@ -6,19 +6,66 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+
+final class MainMessagesViewModel: ObservableObject {
+    
+    @Published var errorMessage = ""
+    @Published var chatUser: ChatUser?
+    
+    init() {
+        fetchCurrentUser()
+    }
+    
+    private func fetchCurrentUser() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+            errorMessage = "Could not find firebase uid"
+            return
+        }
+        
+        
+        FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, error in
+            if let error = error {
+                self.errorMessage = "Failed to fetch current user: \(error)"
+                print(self.errorMessage)
+            }
+            
+            guard let data = snapshot?.data() else {
+                return
+            }
+            
+            let uid = data["uid"] as? String ?? ""
+            let email = data["email"] as? String ?? ""
+            let profileImageURL = data["profileImageUrl"] as? String ?? ""
+            self.chatUser = ChatUser(uid: uid, email: email.replacingOccurrences(of: "@hola.cl", with: ""), profileImageUrl: profileImageURL)
+            self.errorMessage = ""
+        }
+    }
+}
+
 
 struct MainMessagesView: View {
     
     @State var shouldShowLogOutOptions = false
+    @ObservedObject private var viewModel = MainMessagesViewModel()
 
         private var customNavBar: some View {
             HStack(spacing: 16) {
+                
+                WebImage(url: URL(string: viewModel.chatUser?.profileImageUrl ?? ""))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 50, height: 50)
+                    .clipped()
+                    .cornerRadius(50)
+                    .overlay(RoundedRectangle(cornerRadius: 44)
+                                .stroke(Color(.label), lineWidth: 1)
+                    )
+                    .shadow(radius: 5)
 
-                Image(systemName: "person.fill")
-                    .font(.system(size: 34, weight: .heavy))
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("USERNAME")
+                    Text("\(viewModel.chatUser?.email ?? "")")
                         .font(.system(size: 24, weight: .bold))
 
                     HStack {
@@ -52,11 +99,12 @@ struct MainMessagesView: View {
             }
         }
 
-    //MARK: - Main View
+    // MARK: - Main View
         var body: some View {
             NavigationView {
 
                 VStack {
+                    Text("current user: \(viewModel.errorMessage)")
                     customNavBar
                     messagesView
                 }
@@ -123,9 +171,6 @@ struct MainMessagesView: View {
 
 struct MainMessagesView_Previews: PreviewProvider {
     static var previews: some View {
-        MainMessagesView()
-            .preferredColorScheme(.dark)
-        
         MainMessagesView()
     }
 }
