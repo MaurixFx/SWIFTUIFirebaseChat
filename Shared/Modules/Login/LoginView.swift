@@ -10,11 +10,12 @@ import Firebase
 
 struct LoginView: View {
     
-    @State var isLoginMode = false
-    @State var email = ""
-    @State var password = ""
-    @State var username = ""
-    @State var shouldShowImagePicker = false
+    @EnvironmentObject var state: LoginState
+    @State private var isLoginMode = false
+    @State private var email = ""
+    @State private var password = ""
+    @State private var username = ""
+    @State private var shouldShowImagePicker = false
     
     var body: some View {
         NavigationView {
@@ -121,6 +122,7 @@ struct LoginView: View {
             }
             
             self.loginStatusMessage = "Successfully login user: \(user.uid)"
+            state.isLogged = true
             print(self.loginStatusMessage)
         }
     }
@@ -188,6 +190,7 @@ struct LoginView: View {
                 }
 
                 print("Success")
+                state.isLogged = true
             }
     }
 }
