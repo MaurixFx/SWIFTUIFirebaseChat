@@ -29,21 +29,37 @@ struct ChatLogView: View {
     private var messagesView: some View {
         VStack {
             ScrollView {
-                ForEach(0..<20) { num in
-                    HStack {
-                        Spacer()
+                ForEach(viewModel.messages) { message in
+                    if chatUser?.uid != message.fromID {
                         HStack {
-                            Text("FAKE TEST")
-                                .foregroundColor(.white)
-                                
+                            Spacer()
+                            HStack {
+                                Text(message.text)
+                                    .foregroundColor(.white)
+                                    
+                            }
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(8)
                         }
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(8)
+                        .padding(.horizontal)
+                        .padding(.top, 8)
+                    } else {
+                        HStack {
+                            HStack {
+                                Text(message.text)
+                                    .foregroundColor(.white)
+                                    
+                            }
+                            .padding()
+                            .background(Color(.init(white: 0.60, alpha: 1)))
+                            .cornerRadius(8)
+                            
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        .padding(.top, 8)
                     }
-                    .padding(.horizontal)
-                    .padding(.top, 8)
-                   
                 }
                 
                 HStack {
