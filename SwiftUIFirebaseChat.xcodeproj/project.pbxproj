@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		184A00E07F958FEC37D4BE70 /* Pods_SwiftUIFirebaseChat__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89836A84D20043B8E4015CA0 /* Pods_SwiftUIFirebaseChat__macOS_.framework */; };
-		A86BE33DC63B5F50A2B231AF /* Pods_SwiftUIFirebaseChat__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 094B501730720758C911867E /* Pods_SwiftUIFirebaseChat__iOS_.framework */; };
 		D53B3923274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3913274038CD0065B032 /* SwiftUIFirebaseChatApp.swift */; };
 		D53B3924274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3913274038CD0065B032 /* SwiftUIFirebaseChatApp.swift */; };
 		D53B3925274038CF0065B032 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3914274038CD0065B032 /* LoginView.swift */; };
@@ -38,11 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		094B501730720758C911867E /* Pods_SwiftUIFirebaseChat__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUIFirebaseChat__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2688A6300CDB622D9349F114 /* Pods-SwiftUIFirebaseChat (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (macOS).release.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (macOS)/Pods-SwiftUIFirebaseChat (macOS).release.xcconfig"; sourceTree = "<group>"; };
-		549CE3AA9EEC1E430F4ED98C /* Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (macOS)/Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig"; sourceTree = "<group>"; };
-		89836A84D20043B8E4015CA0 /* Pods_SwiftUIFirebaseChat__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUIFirebaseChat__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0E5D809511D78CB721C56BC /* Pods-SwiftUIFirebaseChat (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (iOS).release.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (iOS)/Pods-SwiftUIFirebaseChat (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		2AC55EE193C9852F837AA274 /* Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (iOS)/Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		A50B64F346924ABCB5154C26 /* Pods-SwiftUIFirebaseChat (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (iOS).release.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (iOS)/Pods-SwiftUIFirebaseChat (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		B5D1636614CBF4D38F68935B /* Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (macOS)/Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+		B8E17DB297C48C6FCE31E9E2 /* Pods-SwiftUIFirebaseChat (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (macOS).release.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (macOS)/Pods-SwiftUIFirebaseChat (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		D53B3913274038CD0065B032 /* SwiftUIFirebaseChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIFirebaseChatApp.swift; sourceTree = "<group>"; };
 		D53B3914274038CD0065B032 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D53B3915274038CF0065B032 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +54,6 @@
 		D58B258B27487B5E00BB0AD9 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		D58B25A42748889400BB0AD9 /* MainMessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessagesViewModel.swift; sourceTree = "<group>"; };
 		D58B25A7274888DF00BB0AD9 /* CustomNavBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarViewModel.swift; sourceTree = "<group>"; };
-		DE383AD3AD6B7B5D6BF4EF45 /* Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (iOS)/Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +65,6 @@
 				D58B259A2748853900BB0AD9 /* FirebaseFirestore in Frameworks */,
 				D58B25982748853900BB0AD9 /* FirebaseAuth in Frameworks */,
 				D58B259C2748853900BB0AD9 /* FirebaseStorage in Frameworks */,
-				A86BE33DC63B5F50A2B231AF /* Pods_SwiftUIFirebaseChat__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,13 +72,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184A00E07F958FEC37D4BE70 /* Pods_SwiftUIFirebaseChat__macOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D4C08885BD516CD72A762A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2AC55EE193C9852F837AA274 /* Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig */,
+				A50B64F346924ABCB5154C26 /* Pods-SwiftUIFirebaseChat (iOS).release.xcconfig */,
+				B5D1636614CBF4D38F68935B /* Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig */,
+				B8E17DB297C48C6FCE31E9E2 /* Pods-SwiftUIFirebaseChat (macOS).release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D53B390D274038CD0065B032 = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +96,7 @@
 				D53B3921274038CF0065B032 /* macOS */,
 				D53B391B274038CF0065B032 /* Products */,
 				D5FEB6AE27487326001D670E /* Frameworks */,
-				FAE58501B5C43B61BF0FF160 /* Pods */,
+				5D4C08885BD516CD72A762A6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,21 +202,8 @@
 		D5FEB6AE27487326001D670E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				094B501730720758C911867E /* Pods_SwiftUIFirebaseChat__iOS_.framework */,
-				89836A84D20043B8E4015CA0 /* Pods_SwiftUIFirebaseChat__macOS_.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FAE58501B5C43B61BF0FF160 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DE383AD3AD6B7B5D6BF4EF45 /* Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig */,
-				C0E5D809511D78CB721C56BC /* Pods-SwiftUIFirebaseChat (iOS).release.xcconfig */,
-				549CE3AA9EEC1E430F4ED98C /* Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig */,
-				2688A6300CDB622D9349F114 /* Pods-SwiftUIFirebaseChat (macOS).release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -517,7 +509,7 @@
 		};
 		D53B392C274038CF0065B032 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE383AD3AD6B7B5D6BF4EF45 /* Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig */;
+			baseConfigurationReference = 2AC55EE193C9852F837AA274 /* Pods-SwiftUIFirebaseChat (iOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -548,7 +540,7 @@
 		};
 		D53B392D274038CF0065B032 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0E5D809511D78CB721C56BC /* Pods-SwiftUIFirebaseChat (iOS).release.xcconfig */;
+			baseConfigurationReference = A50B64F346924ABCB5154C26 /* Pods-SwiftUIFirebaseChat (iOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -580,7 +572,7 @@
 		};
 		D53B392F274038CF0065B032 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 549CE3AA9EEC1E430F4ED98C /* Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig */;
+			baseConfigurationReference = B5D1636614CBF4D38F68935B /* Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -609,7 +601,7 @@
 		};
 		D53B3930274038CF0065B032 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2688A6300CDB622D9349F114 /* Pods-SwiftUIFirebaseChat (macOS).release.xcconfig */;
+			baseConfigurationReference = B8E17DB297C48C6FCE31E9E2 /* Pods-SwiftUIFirebaseChat (macOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
