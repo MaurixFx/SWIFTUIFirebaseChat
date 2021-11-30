@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D53951682756AB35001F1F0F /* ChatLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53951672756AB35001F1F0F /* ChatLogViewModel.swift */; };
+		D53951692756AB35001F1F0F /* ChatLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53951672756AB35001F1F0F /* ChatLogViewModel.swift */; };
 		D53B3923274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3913274038CD0065B032 /* SwiftUIFirebaseChatApp.swift */; };
 		D53B3924274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3913274038CD0065B032 /* SwiftUIFirebaseChatApp.swift */; };
 		D53B3925274038CF0065B032 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B3914274038CD0065B032 /* LoginView.swift */; };
@@ -46,6 +48,7 @@
 		A50B64F346924ABCB5154C26 /* Pods-SwiftUIFirebaseChat (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (iOS).release.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (iOS)/Pods-SwiftUIFirebaseChat (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		B5D1636614CBF4D38F68935B /* Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (macOS)/Pods-SwiftUIFirebaseChat (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		B8E17DB297C48C6FCE31E9E2 /* Pods-SwiftUIFirebaseChat (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIFirebaseChat (macOS).release.xcconfig"; path = "Target Support Files/Pods-SwiftUIFirebaseChat (macOS)/Pods-SwiftUIFirebaseChat (macOS).release.xcconfig"; sourceTree = "<group>"; };
+		D53951672756AB35001F1F0F /* ChatLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewModel.swift; sourceTree = "<group>"; };
 		D53B3913274038CD0065B032 /* SwiftUIFirebaseChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIFirebaseChatApp.swift; sourceTree = "<group>"; };
 		D53B3914274038CD0065B032 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D53B3915274038CF0065B032 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -197,6 +200,7 @@
 				D58B25A7274888DF00BB0AD9 /* CustomNavBarViewModel.swift */,
 				D58B25A42748889400BB0AD9 /* MainMessagesViewModel.swift */,
 				D597518D2755CE850064A3D3 /* UserListViewModel.swift */,
+				D53951672756AB35001F1F0F /* ChatLogViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -388,6 +392,7 @@
 				D53B3925274038CF0065B032 /* LoginView.swift in Sources */,
 				D597518B2755C4740064A3D3 /* UsersListView.swift in Sources */,
 				D53B3923274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */,
+				D53951682756AB35001F1F0F /* ChatLogViewModel.swift in Sources */,
 				D58B25A52748889400BB0AD9 /* MainMessagesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +412,7 @@
 				D53B3926274038CF0065B032 /* LoginView.swift in Sources */,
 				D597518C2755C4740064A3D3 /* UsersListView.swift in Sources */,
 				D53B3924274038CF0065B032 /* SwiftUIFirebaseChatApp.swift in Sources */,
+				D53951692756AB35001F1F0F /* ChatLogViewModel.swift in Sources */,
 				D58B25A62748889400BB0AD9 /* MainMessagesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
