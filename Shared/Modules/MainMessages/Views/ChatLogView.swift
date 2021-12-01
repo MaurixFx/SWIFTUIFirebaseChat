@@ -81,8 +81,12 @@ struct ChatLogView: View {
             Image(systemName: "photo.on.rectangle")
                 .font(.system(size: 24))
                 .foregroundColor(Color(.darkGray))
-            //TextEditor(text: $chatText)
-            TextField("Description", text: $viewModel.chatText, prompt: nil)
+            ZStack {
+                DescriptionPlaceholder()
+                TextEditor(text: $viewModel.chatText)
+                    .opacity(viewModel.chatText.isEmpty ? 0.5 : 1)
+            }
+            .frame(height: 40)
             
             Button {
                 viewModel.handleSend()
@@ -101,6 +105,19 @@ struct ChatLogView: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 8)
+    }
+}
+
+private struct DescriptionPlaceholder: View {
+    var body: some View {
+        HStack {
+            Text("Description")
+                .foregroundColor(Color(.gray))
+                .font(.system(size: 17))
+                .padding(.leading, 5)
+                .padding(.top, -4)
+            Spacer()
+        }
     }
 }
 
