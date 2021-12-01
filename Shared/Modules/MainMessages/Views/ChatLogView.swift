@@ -30,36 +30,36 @@ struct ChatLogView: View {
         VStack {
             ScrollView {
                 ForEach(viewModel.messages) { message in
-                    if chatUser?.uid != message.fromID {
-                        HStack {
-                            Spacer()
+                    VStack {
+                        if chatUser?.uid != message.fromID {
                             HStack {
-                                Text(message.text)
-                                    .foregroundColor(.white)
-                                    
+                                Spacer()
+                                HStack {
+                                    Text(message.text)
+                                        .foregroundColor(.white)
+                                        
+                                }
+                                .padding()
+                                .background(Color.blue)
+                                .cornerRadius(8)
                             }
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(8)
-                        }
-                        .padding(.horizontal)
-                        .padding(.top, 8)
-                    } else {
-                        HStack {
+                        } else {
                             HStack {
-                                Text(message.text)
-                                    .foregroundColor(.white)
-                                    
+                                HStack {
+                                    Text(message.text)
+                                        .foregroundColor(.black)
+                                        
+                                }
+                                .padding()
+                                .background(Color.white)
+                                .cornerRadius(8)
+                                
+                                Spacer()
                             }
-                            .padding()
-                            .background(Color(.init(white: 0.60, alpha: 1)))
-                            .cornerRadius(8)
-                            
-                            Spacer()
                         }
-                        .padding(.horizontal)
-                        .padding(.top, 8)
                     }
+                    .padding(.horizontal)
+                    .padding(.top, 8)
                 }
                 
                 HStack {
@@ -103,8 +103,6 @@ struct ChatLogView: View {
 
 struct ChatLogView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            ChatLogView(chatUser: .init(data: ["username": "Maurix", "uid": "N1fPrp3TaEfgIbKfUeYibk6uZDM2"]))
-        }
+        MainMessagesView()
     }
 }
