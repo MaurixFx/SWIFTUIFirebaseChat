@@ -7,14 +7,17 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 final class MainMessagesViewModel: ObservableObject {
     
     @Published var errorMessage = ""
     @Published var chatUser: ChatUser?
+    @Published var recentMessages = [RecentMessage]()
     
     init() {
         fetchCurrentUser()
+        fetchRecentMessages()
     }
     
     private func fetchCurrentUser() {
@@ -38,4 +41,37 @@ final class MainMessagesViewModel: ObservableObject {
             self.errorMessage = ""
         }
     }
+    
+    private func fetchRecentMessages() {
+        guard let currentUserUid = FirebaseManager.shared.auth.currentUser?.uid  else {
+            return
+        }
+        
+        FirebaseManager.shared.firestore
+            .collection("recent_messages")
+            .document(currentUserUid)
+            .collection("messages")
+            .order(by: "timestamp")
+            .addSnapshotListener { snapshot, error in
+                if let error = error {
+                    print("Failed to get messages: \(error.localizedDescription)")
+                    return
+                }
+                
+                snapshot?.documentChanges.forEach({ change in
+                    let documentId = change.document.documentID
+                    if let index = self.recentMessages.firstIndex(where: { rm in
+                        return rm.documentId == documentId
+                    }) {
+                        self.recentMessages.remove(at: index)
+                    }
+                    
+                    self.recentMessages.insert(
+                        .init(with: documentId, data: change.document.data()),
+                        at: 0
+                    )
+                })
+            }
+    }
+
 }

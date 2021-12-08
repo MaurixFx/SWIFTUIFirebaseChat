@@ -79,10 +79,47 @@ final class ChatLogViewModel: ObservableObject {
             if let error = error {
                 print("Failed to send message: \(error.localizedDescription)")
             } else {
-                self.chatText = ""
                 self.reloadMessages = true
                 print("Message was created successfully")
+                self.persistRecentMessage()
             }
+        }
+    }
+    
+    private func persistRecentMessage() {
+        guard let chatUser = chatUser else {
+            return
+        }
+
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+            return
+        }
+        
+        let toID = chatUser.uid
+        
+        let document = FirebaseManager.shared.firestore.collection("recent_messages")
+            .document(uid)
+            .collection("messages")
+            .document(toID)
+        
+        let data = [
+            "timestamp": Timestamp(),
+            "text": self.chatText,
+            "fromId": uid,
+            "toId": toID,
+            "profileImageUrl": chatUser.profileImageUrl,
+            "username": chatUser.username
+        ] as [String: Any]
+        
+        document.setData(data) { error in
+            if let error = error {
+                print("Failed to persist recent messages: \(error.localizedDescription)")
+                return
+            }
+
+            self.chatText = ""
+            print("Message is saved in recent messages")
+            
         }
     }
 }
