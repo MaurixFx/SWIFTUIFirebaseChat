@@ -12,6 +12,7 @@ final class ChatLogViewModel: ObservableObject {
     
     @Published var chatText = ""
     @Published var messages = [Message]()
+    @Published var reloadMessages = false
     let chatUser: ChatUser?
     
     init(chatUser: ChatUser?) {
@@ -66,6 +67,10 @@ final class ChatLogViewModel: ObservableObject {
                         self.messages.append(.init(data: change.document.data(), documentID: change.document.documentID))
                     }
                 })
+                
+                DispatchQueue.main.async {
+                    self.reloadMessages = true
+                }
             }
     }
     
@@ -75,6 +80,7 @@ final class ChatLogViewModel: ObservableObject {
                 print("Failed to send message: \(error.localizedDescription)")
             } else {
                 self.chatText = ""
+                self.reloadMessages = true
                 print("Message was created successfully")
             }
         }
