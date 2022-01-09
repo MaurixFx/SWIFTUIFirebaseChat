@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Firebase
+import FirebaseFirestoreSwift
 
 final class MainMessagesViewModel: ObservableObject {
     
@@ -61,15 +62,19 @@ final class MainMessagesViewModel: ObservableObject {
                 snapshot?.documentChanges.forEach({ change in
                     let documentId = change.document.documentID
                     if let index = self.recentMessages.firstIndex(where: { rm in
-                        return rm.documentId == documentId
+                        return rm.id == documentId
                     }) {
                         self.recentMessages.remove(at: index)
                     }
                     
-                    self.recentMessages.insert(
-                        .init(with: documentId, data: change.document.data()),
-                        at: 0
-                    )
+                    do {
+                        if let rm = try change.document.data(as: RecentMessage.self) {
+                            self.recentMessages.insert(rm, at: 0)
+                        }
+                    } catch {
+                        print(error)
+                    }
+
                 })
             }
     }

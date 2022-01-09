@@ -108,6 +108,7 @@ struct MainMessagesView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text(recentMessage.username)
                                     .font(.system(size: 16, weight: .bold))
+                                    .multilineTextAlignment(.leading)
                                     .foregroundColor(Color(.label))
 
                                 Text(recentMessage.text)
@@ -119,7 +120,7 @@ struct MainMessagesView: View {
                             
                             Spacer()
                             
-                            Text("22d")
+                            Text(recentMessage.timestamp.description)
                                 .font(.system(size: 14, weight: .semibold))
                         }
                     }
