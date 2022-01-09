@@ -9,20 +9,17 @@ import SwiftUI
 
 struct ChatLogView: View {
     
-    let chatUser: ChatUser?
     @ObservedObject var viewModel: ChatLogViewModel
-    
-    init(chatUser: ChatUser?) {
-        self.chatUser = chatUser
-        self.viewModel = .init(chatUser: chatUser)
-    }
     
     var body: some View {
         ZStack {
             messagesView
         }
-        .navigationTitle(chatUser?.username ?? "")
+        .navigationTitle(viewModel.chatUser?.username ?? "")
         .navigationBarTitleDisplayMode(.inline)
+        .onDisappear {
+            viewModel.firestoreListener?.remove()
+        }
         
     }
     
