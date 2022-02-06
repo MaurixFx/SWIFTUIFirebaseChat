@@ -12,15 +12,19 @@ import FirebaseFirestoreSwift
 
 final class MainMessagesViewModel: ObservableObject {
     
+    // MARK: - Properties
     @Published var errorMessage = ""
     @Published var chatUser: ChatUser?
     @Published var recentMessages = [RecentMessage]()
+    private var firestoreListener: ListenerRegistration?
     
+    // MARK: - Init
     init() {
         fetchCurrentUser()
         fetchRecentMessages()
     }
     
+    // MARK: - Fetch Current User
     private func fetchCurrentUser() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
             self.errorMessage = "Could not find firebase uid"
@@ -39,8 +43,7 @@ final class MainMessagesViewModel: ObservableObject {
         }
     }
     
-    private var firestoreListener: ListenerRegistration?
-    
+    // MARK: - Fetch Recents Messages
     private func fetchRecentMessages() {
         guard let currentUserUid = FirebaseManager.shared.auth.currentUser?.uid  else {
             return

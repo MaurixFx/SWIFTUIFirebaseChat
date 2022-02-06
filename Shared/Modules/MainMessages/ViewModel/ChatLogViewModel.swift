@@ -10,18 +10,20 @@ import Firebase
 
 final class ChatLogViewModel: ObservableObject {
     
+    // MARK: - Properties
     @Published var chatText = ""
     @Published var messages = [Message]()
     @Published var reloadMessages = false
     var chatUser: ChatUser?
+    var firestoreListener: ListenerRegistration?
     
+    // MARK: - Init
     init(chatUser: ChatUser?) {
         self.chatUser = chatUser
         fetchMessages()
     }
     
-    var firestoreListener: ListenerRegistration?
-    
+    // MARK: - Fetch Messages
     func fetchMessages() {
         guard let fromID = FirebaseManager.shared.auth.currentUser?.uid else {
             return

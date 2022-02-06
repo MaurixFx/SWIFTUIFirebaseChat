@@ -9,13 +9,16 @@ import SwiftUI
 
 final class UsersListViewModel: ObservableObject {
     
+    // MARK: - Properties
     @Published var users = [ChatUser]()
     @Published var errorMessage = ""
     
+    // MARK: - Init
     init() {
         fetchAllUsers()
     }
     
+    // MARK: - Fetch All Users
     private func fetchAllUsers() {
         FirebaseManager.shared.firestore.collection("users")
             .getDocuments { documentsSnapshot, error in
