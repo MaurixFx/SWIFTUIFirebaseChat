@@ -12,10 +12,13 @@ struct MainMessagesView: View {
     
     @ObservedObject private var viewModel = MainMessagesViewModel()
     @EnvironmentObject var state: LoginState
-    @State var shouldShowLogOutOptions = false
     @ObservedObject private var navBarViewModel = CustomNavBarViewModel()
+    
+    @State var shouldShowLogOutOptions = false
     @State var shouldShowNewMessageScreen = false
     @State var shouldNavigateToChatLogView = false
+    
+    private var chatViewModel = ChatLogViewModel(chatUser: nil)
     
     // MARK: - Main View
     var body: some View {
@@ -25,7 +28,7 @@ struct MainMessagesView: View {
                 messagesView
                 
                 NavigationLink("", isActive: $shouldNavigateToChatLogView) {
-                    ChatLogView(chatUser: chatUser)
+                    ChatLogView(viewModel: chatViewModel)
                 }
             }
             .overlay(
@@ -89,8 +92,20 @@ struct MainMessagesView: View {
         ScrollView {
             ForEach(viewModel.recentMessages) { recentMessage in
                 VStack {
-                    NavigationLink {
-                        Text("Destination")
+                    Button {
+                        let uid = FirebaseManager.shared.auth.currentUser?.uid == recentMessage.fromId ? recentMessage.toId : recentMessage.fromId
+                        
+                        self.chatUser = .init(
+                            id: uid,
+                            uid: uid,
+                            email: recentMessage.email,
+                            profileImageUrl: recentMessage.profileImageUrl,
+                            username: recentMessage.username
+                        )
+                        
+                        self.chatViewModel.chatUser = self.chatUser
+                        self.chatViewModel.fetchMessages()
+                        self.shouldNavigateToChatLogView.toggle()
                     } label: {
                         HStack(spacing: 16) {
                             WebImage(url: URL(string: recentMessage.profileImageUrl))
@@ -108,6 +123,7 @@ struct MainMessagesView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text(recentMessage.username)
                                     .font(.system(size: 16, weight: .bold))
+                                    .multilineTextAlignment(.leading)
                                     .foregroundColor(Color(.label))
 
                                 Text(recentMessage.text)
@@ -119,8 +135,9 @@ struct MainMessagesView: View {
                             
                             Spacer()
                             
-                            Text("22d")
-                                .font(.system(size: 14, weight: .semibold))
+                            Text(recentMessage.timeAgo)
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundColor(Color(.label))
                         }
                     }
 
@@ -154,6 +171,8 @@ struct MainMessagesView: View {
                 self.chatUser = user
                 print(user.email)
                 self.shouldNavigateToChatLogView.toggle()
+                self.chatViewModel.chatUser = user
+                self.chatViewModel.fetchMessages()
             })
         }
     }

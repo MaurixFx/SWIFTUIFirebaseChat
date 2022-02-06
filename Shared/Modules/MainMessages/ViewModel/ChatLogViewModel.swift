@@ -10,17 +10,21 @@ import Firebase
 
 final class ChatLogViewModel: ObservableObject {
     
+    // MARK: - Properties
     @Published var chatText = ""
     @Published var messages = [Message]()
     @Published var reloadMessages = false
-    let chatUser: ChatUser?
+    var chatUser: ChatUser?
+    var firestoreListener: ListenerRegistration?
     
+    // MARK: - Init
     init(chatUser: ChatUser?) {
         self.chatUser = chatUser
         fetchMessages()
     }
     
-    func handleSend() {
+    // MARK: - Fetch Messages
+    func fetchMessages() {
         guard let fromID = FirebaseManager.shared.auth.currentUser?.uid else {
             return
         }
@@ -29,29 +33,7 @@ final class ChatLogViewModel: ObservableObject {
             return
         }
         
-        let messageData = ["fromID": fromID, "toID": toID, "text": self.chatText, "timeStamp": Timestamp()] as [String : Any]
-        
-        let document = FirebaseManager.shared.firestore.collection("messages").document(fromID)
-            .collection(toID)
-            .document()
-        setMessageData(with: document, data: messageData)
-        
-        let recipientMessageDocument = FirebaseManager.shared.firestore.collection("messages").document(toID)
-            .collection(fromID)
-            .document()
-        setMessageData(with: recipientMessageDocument, data: messageData)
-    }
-    
-    private func fetchMessages() {
-        guard let fromID = FirebaseManager.shared.auth.currentUser?.uid else {
-            return
-        }
-        
-        guard let toID = chatUser?.uid else {
-            return
-        }
-        
-        FirebaseManager.shared.firestore
+        firestoreListener = FirebaseManager.shared.firestore
             .collection("messages")
             .document(fromID)
             .collection(toID)
@@ -74,19 +56,47 @@ final class ChatLogViewModel: ObservableObject {
             }
     }
     
-    private func setMessageData(with documentReference: DocumentReference, data: [String: Any]) {
-        documentReference.setData(data) { error in
+    func handleSend() {
+        let text = chatText
+        guard let fromID = FirebaseManager.shared.auth.currentUser?.uid else {
+            return
+        }
+        
+        guard let toID = chatUser?.uid else {
+            return
+        }
+        
+        let messageData = ["fromID": fromID, "toID": toID, "text": self.chatText, "timeStamp": Timestamp()] as [String : Any]
+        
+        let document = FirebaseManager.shared.firestore.collection("messages").document(fromID)
+            .collection(toID)
+            .document()
+        
+        document.setData(messageData) { error in
             if let error = error {
                 print("Failed to send message: \(error.localizedDescription)")
             } else {
                 self.reloadMessages = true
                 print("Message was created successfully")
-                self.persistRecentMessage()
+                self.chatText = ""
+                self.persistRecentMessage(text: text)
+            }
+        }
+        
+        let recipientMessageDocument = FirebaseManager.shared.firestore.collection("messages").document(toID)
+            .collection(fromID)
+            .document()
+        
+        recipientMessageDocument.setData(messageData) { error in
+            if let error = error {
+                print("Failed to send message: \(error.localizedDescription)")
+                return
             }
         }
     }
     
-    private func persistRecentMessage() {
+
+    private func persistRecentMessage(text: String) {
         guard let chatUser = chatUser else {
             return
         }
@@ -104,11 +114,12 @@ final class ChatLogViewModel: ObservableObject {
         
         let data = [
             "timestamp": Timestamp(),
-            "text": self.chatText,
+            "text": text,
             "fromId": uid,
             "toId": toID,
             "profileImageUrl": chatUser.profileImageUrl,
-            "username": chatUser.username
+            "username": chatUser.username,
+            "email": chatUser.email
         ] as [String: Any]
         
         document.setData(data) { error in
@@ -117,9 +128,31 @@ final class ChatLogViewModel: ObservableObject {
                 return
             }
 
-            self.chatText = ""
             print("Message is saved in recent messages")
-            
         }
+        
+        
+        guard let currentUser = FirebaseManager.shared.currentUser else { return }
+        let recipientRecentMessageDictionary = [
+            "timestamp": Timestamp(),
+            "text": text,
+            "fromId": uid,
+            "toId": toID,
+            "profileImageUrl": currentUser.profileImageUrl,
+            "username": currentUser.username,
+            "email": currentUser.email
+        ] as [String : Any]
+        
+        FirebaseManager.shared.firestore
+            .collection("recent_messages")
+            .document(toID)
+            .collection("messages")
+            .document(currentUser.uid)
+            .setData(recipientRecentMessageDictionary) { error in
+                if let error = error {
+                    print("Failed to save recipient recent message: \(error)")
+                    return
+                }
+            }
     }
 }
